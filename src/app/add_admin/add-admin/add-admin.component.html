@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px"  class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+    <span class="material-symbols-outlined">
+      admin_panel_settings
+      </span>
+      <p>{{ this.firstname_new }} {{ this.lastname_new }}</p>
+  </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/borroweditems']">รายการยืมของสมาชิก</a>
+    <a [routerLink]="['/returnitem']">รายการคืนของสมาชิก</a>
+    <a [routerLink]="['/sportsequipment']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/member']">สมาชิก</a>
+    <a [routerLink]="['/admin']">ผู้ดูแลระบบ</a>
+    <a [routerLink]="['/borrowingreport']">รายงานการยืม - คืน</a>
+    <a routerLink="/">ออกจากระบบ</a>
+  </div>
+</div>
+<form method="post" enctype="multipart/form-data">
+  <div class="container">
+    <div class="add-admin">เพิ่มเจ้าหน้าที่ดูแลระบบ</div>
+    <p>กรุณากรอกแบบฟอร์มนี้เพื่อเพิ่มเจ้าหน้าที่ดูแลระบบ.</p>
+    <hr />
+    <label for="prefix"><b>คำนำหน้า</b></label>
+    <select name="prefix" id="prefix" #prefix>
+      <option value="นาย">นาย</option>
+      <option value="นางสาว">นางสาว</option>
+      <option value="นาง">นาง</option>
+      <option value="เด็กชาย">เด็กชาย</option>
+      <option value="เด็กหญิง">เด็กหญิง</option>
+    </select>
+    <label for="firstname"><b>ชื่อ</b></label>
+    <input
+      type="text"
+      placeholder="กรุณากรอกชื่อ"
+      name="text"
+      id="firstname"
+      required
+      #firstname
+    />
+    <label for="lastname"><b>นามสกุล</b></label>
+    <input
+      type="text"
+      placeholder="กรุณากรอกนามสกุล"
+      name="lastname"
+      id="lastname"
+      required
+      #lastname
+    />
+    <label for="email"><b>อีเมล</b></label>
+    <input
+      type="email"
+      placeholder="กรุณากรอกอีเมล"
+      name="email"
+      id="email"
+      required
+      #email
+    />
+
+    <label for="psw"><b>รหัสผ่าน</b></label>
+    <input
+      type="password"
+      placeholder="กรุณากรอกรหัสผ่าน"
+      name="psw"
+      id="psw"
+      required
+      #password
+    />
+    <label for="sex"><b>เพศ</b></label>
+    <select name="sex" id="sex" #sex>
+      <option value="ชาย">ชาย</option>
+      <option value="หญิง">หญิง</option>
+      <option value="อื่นๆ">อื่นๆ</option>
+    </select>
+    <label for="telephone"><b>เบอร์โทร</b></label>
+    <input
+      type="text"
+      name="telephone"
+      id="telephone"
+      placeholder="กรุณากรอกเบอร์โทรศัพท์"
+      required
+      #telephone
+    />
+    <button
+      type="submit"
+      class="submit-save"
+      (click)="
+        save_admin(
+          prefix.value,
+          firstname.value,
+          lastname.value,
+          email.value,
+          password.value,
+          sex.value,
+          telephone.value
+        )
+      "
+    >
+      บันทึกข้อมูล
+    </button>
+  </div>
+</form>

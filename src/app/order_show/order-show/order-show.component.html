@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<body>
+  <div class="header">
+    <div class="img-logo">
+      <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px" class="logo" />
+    </div>
+    <div class="link-login">
+      <a (click)="goTomember()"><span class="material-symbols-outlined">account_circle</span><p>สมาชิก</p></a>
+      <a (click)="goToadmin()"><span class="material-symbols-outlined">admin_panel_settings</span><p>ผู้ดูแลระบบ</p></a>
+    </div>
+  </div>
+  
+  <div class="container-order">
+    <div class="head-title-order">
+      รายการอุปกรณ์กีฬา
+    </div>
+    <div class="item-order">
+      <ng-container *ngFor="let equipmentLists of equipmentLists; let i = index">
+      <div class="box-item-order">
+        <div class="box-item-order-size">
+          <img [src]="equipmentLists.equipmentlist_picture" alt="" width="100%">
+          <div class="box-item">
+            <p>{{ equipmentLists.equipmentlist_name }}</p>
+            <div class="box-item-data">
+              <div class="amount"> จำนวนอุปกรณ์ </div><div class="count"> {{ equipmentLists.equipmentlist_count }} {{ equipmentLists.equipmentlist_unit }}</div>
+            </div>
+            <div class="box-item-data">
+              <div class="box-item-detail">รายละเอียดอุปกรณ์</div><div class="item-detail" [title]="equipmentLists.equipmentlist_detail">{{ equipmentLists.equipmentlist_detail }}</div>
+            </div>
+            <div class="box-detail-equipment">
+              <button>รายละเอียดอุปกรณ์กีฬา</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    </div>
+  </div>
+</body>

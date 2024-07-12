@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Anuphan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+body{
+  background-image: url("../../../assets/background.jpg");
+  width: 100%;
+  border: 1px solid #04AA6D;
+}
+.container{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.container .box-title-login{
+  font-size: 28pt;
+  margin: 10px 0;
+  border-bottom: 2px solid #04AA6D;
+}
+.container p{
+  font-size: 12pt;
+  margin: 5px 0;
+}
+.login{
+  width: 50%;
+  margin: 12vh auto;
+  border: 1px solid #e9e9e9;
+  border-radius: 22px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #dbdbdb;
+}
+.head-text{
+  text-align: center;
+  background-color: #04AA6D;
+  border-radius: 20px 20px 0 0;
+  padding: 38px;
+  color: #ffffff;
+  font-size: 28pt;
+}
+label{
+  font-size: 15pt;
+  display: flex;
+}
+label span{
+  padding: 2px 0;
+}
+label b{
+  padding: 4px 5px;
+}
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email], select{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 16pt;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  text-align: center;
+  padding: 10px;
+}
+@media (max-width: 1024px) {
+  .login{
+    width: 100%;
+  }
+  .container .box-title-login , p{
+    text-align: center;
+  }
+} 

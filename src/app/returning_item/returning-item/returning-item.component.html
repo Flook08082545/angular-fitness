@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px"  class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+    <span class="material-symbols-outlined">
+      admin_panel_settings
+      </span>
+    <p>{{ this.firstname }} {{ this.lastname }}</p>
+  </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/borroweditems']">รายการยืมของสมาชิก</a>
+    <a [routerLink]="['/returnitem']">รายการคืนของสมาชิก</a>
+    <a [routerLink]="['/sportsequipment']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/member']">สมาชิก</a>
+    <a [routerLink]="['/admin']">ผู้ดูแลระบบ</a>
+    <a [routerLink]="['/borrowingreport']">รายงานการยืม - คืน</a>
+    <a routerLink="/">ออกจากระบบ</a>
+  </div>
+</div>
+<div class="selections">
+  <div class="title-selections">
+    <div class="head-selection">รายการคืนของสมาชิก</div>
+    <div class="search">
+      <input type="search" class="search" [(ngModel)]="searchTerm" placeholder="ค้นหา" />
+      <button class="btn-search" (click)="searchItems()"> ค้นหา </button>
+    </div>
+  </div>
+  <table id="customers">
+    <tr>
+      <th>รหัสรายการ</th>
+      <th>ชื่อ - นามสกุล</th>
+      <th>ชื่ออุปกรณ์</th>
+      <th>จำนวน</th>
+      <th>หน่วยนับ</th>
+      <th>รายละเอียดอุปกรณ์</th>
+      <th>วันที่ยืม</th>
+      <th>วันที่คืน</th>
+      <th>การจัดการ</th>
+    </tr>
+    <ng-container *ngFor="let order of filteredOrderspage | paginate: { itemsPerPage: 5, currentPage: p }">
+      <tr>
+        <td data-call="รหัสรายการ">{{ order.borrowing_returning_id }}</td>
+        <td data-call="ชื่อ - นามสกุล">{{ order.firstname }} {{ order.lastname }}</td>
+        <td data-call="ชื่ออุปกรณ์">{{ order.equipmentlist_name }}</td>
+        <td data-call="จำนวน">{{ order.order_count }}</td>
+        <td data-call="หน่วยนับ">{{ order.equipmentlist_unit }}</td>
+        <td class="item-detail" [title]="order.equipmentlist_detail" data-call="รายละเอียดอุปกรณ์">{{ order.equipmentlist_detail }}</td>
+        <td data-call="วันที่ยืม">{{ order.date_borrowing | thaiDate }}</td>
+        <td data-call="วันที่คืน">{{ order.date_returning | thaiDate }}</td>
+        <td data-call="การจัดการ">
+          <span *ngIf="order.borrowing_returning_status === 'Y'">
+            <button class="returnitem">คืนเรียบร้อย</button>
+          </span>
+          <span *ngIf="order.borrowing_returning_status === 'N'">
+            <button class="no-returnitem" (click)="confirmApproval(order.borrowing_returning_id, order)">
+              ยังไม่คืน
+            </button>
+          </span>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <div class="paging" *ngIf="filteredOrderspage.length > 0">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

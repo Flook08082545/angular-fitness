@@ -1,0 +1,30 @@
+<div class="dialog">
+    <div class="container-item-sport">
+      <div class="box-borrow">
+        <img [src]="equipment.equipmentlist_picture" alt="">
+          <div class="box-col-equipment">
+            <div class="box-title-equipment">
+                {{ equipment.equipmentlist_name }}
+            </div>
+              <div class="box-borrow-counter">
+                <button (click)="incrementCounter()" class="minus">-</button>
+                <span id="counter">{{ count }}</span>
+                <button (click)="decrementCounter()" class="plus">+</button>
+            </div>
+            <div class="box-count-unit">
+              <div class="box-flex-left">จำนวน </div> <div class="box-flex-right">{{ equipment.equipmentlist_count }} {{ equipment.equipmentlist_unit }}</div>
+            </div>
+            <div class="box-detail"><div class="box-grid-left">รายละเอียดอุปกรณ์ </div> <div class="box-grid-right">{{ equipment.equipmentlist_detail }}</div></div>
+              <div class="box-button-confirm">
+                <div class="confirm-submit">
+                  <a (click)="order_confirm()">ยืม</a>
+                </div>
+                <div class="cancel-submit">
+                  <a (click)="onCancel()">ยกเลิก</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px"  class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+    <span class="material-symbols-outlined">
+      account_circle
+      </span>
+    <p>{{ this.firstname }} {{ this.lastname }}</p>
+  </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/fitnessitem']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/selections']">รายการยืมทั้งหมด</a>
+    <a [routerLink]="['/qrcode']">QR CODE</a>
+    <a [routerLink]="['/profile']">ข้อมูลส่วนตัว</a>
+    <a (click)="logout()">ออกจากระบบ</a>
+  </div>
+</div>
+<div class="profile">
+  <div class="profile-title">
+    <a (click)="goToEditProfile()">แก้ไขข้อมูลส่วนตัว</a>
+  </div>
+  <span class="material-symbols-outlined">
+    account_circle
+    </span>
+  <div class="text-detail" *ngFor="let member of member">
+    <div class="box-text-fullname">{{ member.firstname }}    {{ member.lastname }}</div>
+    <div class="box-text-other">
+      <div class="text-other">อีเมล :  {{ member.email }}</div>
+      <div class="text-other">เพศ : {{ member.sex }}</div>
+      <div class="text-other">เบอร์โทร : 0{{ member.telephone_number }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,236 @@
+// .container-item-sport{
+//     overflow: hidden;
+//     border-radius: 5px;
+//     padding-bottom: 20px;
+// }
+// // .title_equipment_name{
+// //     font-size: 20pt;
+// //     background-color: #04AA6D;
+// //     color: #fff;
+// //     width: 100%;
+// //     margin-bottom: 10px;
+// //     padding: 5px;
+// //     overflow: hidden;
+// // }
+// .box-borrow{
+//   text-align: center;
+// }
+// .box-borrow img{
+//   width: 300px;
+// }
+// .title_equipment_name .text_equipment_name{
+//     float: left;
+// }
+// .title_equipment_name a{
+//     float: right;
+//     text-decoration: none;
+//     font-size: 16pt;
+//     border-radius: 5px;
+//     padding: 5px 10px;
+//     background-color: #fff;
+//     color: #3a3a3a;
+//     cursor: pointer;
+// }
+// .title_equipment_name a:hover{
+//     background-color: #f0f0f0;
+//     transition: 0.2s;
+// }
+// .container-item-sport .page-right .count_unit , .detail{
+//     padding: 0 20px;
+//     font-size: 14pt;
+// }
+// #app{
+//     width: 100%;
+//     margin: 0;
+// }
+// .plus-minus{
+//     padding: 10px 20px;
+//     text-align: left;
+// }
+// .plus{
+//     padding: 5px 15%;
+//     border: 0;
+//     border-radius: 5px;
+//     background-color: #b10000;
+//     color: #fff;
+// }
+// .minus{
+//     padding: 5px 15%;
+//     border: 0;
+//     border-radius: 5px;
+//     background-color: #e9b200;
+//     color: #fff;
+// }
+// #counter{
+//     padding: 5px 50px;
+//     background-color: #acacac;
+//     margin: 10px;
+//     color: #fff;
+// }
+// .confirm-submit{
+//     padding: 10px 20px;
+//     border-radius: 5px;
+//     width: 50%;
+// }
+// .confirm-submit a{
+//     text-decoration: none;
+//     color: #fff;
+//     background-color: #04AA6D;
+//     padding: 10px 100%;
+//     border-radius: 5px;
+//     cursor: pointer;
+// }
+// .confirm-submit a:hover{
+//     background-color: #4d4d4d;
+//     transition: 0.2s;
+// }
+// .date_item{
+//     display: flex;
+// }
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&family=Noto+Sans+Thai&display=swap');
+.dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-family: 'Noto Sans Thai', sans-serif;
+  }
+  
+  .container-item-sport {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .box-borrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Set the maximum width of the box */
+    width: 100%; /* Make the box take the full width */
+  }
+
+  .box-col-equipment{
+    width: 100%;
+    border-radius: 10px;
+    margin: 0;
+  }
+  
+  .box-borrow img {
+    width: 100%;
+    max-width: 500px; /* Set the maximum width of the image */
+    height: auto;
+  }
+  
+  .box-title-equipment {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #3b3b3b;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #3b3b3b;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+  }
+  .box-count-unit{
+    font-size: 16pt;
+    width: 100%;
+    overflow: hidden;
+  }
+  .box-detail{
+    font-size: 13pt;
+  }
+
+.box-flex-left{
+    float: left;
+    padding: 3px 10px;
+  }
+.box-flex-right{
+    float: right;
+    background-color: #0db581;
+    padding: 3px 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+.box-grid-left{
+    padding: 5px 10px;
+  }
+.box-grid-right{
+    padding: 3px 10px;
+    border-radius: 5px;
+    color: #6e6e6e;
+    font-size: 10pt;
+}
+  .box-borrow-counter {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  #counter{
+    padding: 10px 20px;
+  }
+  .box-borrow-counter button {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    width: 50%;
+  }
+
+  .box-borrow-counter button.minus{
+    background-color: #d33;
+  }
+    
+  .box-borrow-counter button.plus{
+    background-color: #0db581;
+  }
+ 
+  .box-borrow-counter #counter {
+    margin: 0 10px;
+    font-size: 1.2em;
+  }
+  .box-button-confirm{
+    display: flex;
+  }
+  .confirm-submit{
+    width: 80%;
+    display: flex;
+}
+  .confirm-submit a{
+    background-color: #007bff;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin: 0 2px;
+    cursor: pointer;
+    font-size: 14pt;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .cancel-submit{
+    width: 20%;
+    display: flex;
+}
+  .cancel-submit a{
+    background-color: #d33;
+    width: 200%;
+    text-align: center;
+    padding: 10px;
+    margin: 0 2px;
+    cursor: pointer;
+    font-size: 14pt;
+    color: #fff;
+    border-radius: 5px;
+  }
+  

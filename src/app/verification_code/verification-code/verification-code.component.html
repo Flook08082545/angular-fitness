@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<body>
+  <div class="container">
+    <div class="login">
+      <div class="head-text">ยืนยันตัวตนด้วยรหัส OTP</div>
+      <div class="container-login">
+        <form (ngSubmit)="onVerify(otp.value)">
+          <div class="container-form">
+            <div class="box-title-email-confirm">กรอกรหัสยืนยันตัวตน</div>
+            <p>กรุณากรอกแบบฟอร์มนี้เพื่อยืนยันตัวตน</p>
+            <hr />
+            <label for="otp"><span class="material-symbols-outlined">key</span><b>รหัส OTP</b></label>
+            <input type="text" id="otp" placeholder="กรุณากรอกรหัส OTP" #otp name="otp" required />
+
+            <button type="button" class="send-otp" (click)="onResend($event)">
+              ส่งรหัสอีกครั้ง
+            </button>
+            <hr />
+            <button type="submit" class="confirm-otp">
+              ยืนยัน
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

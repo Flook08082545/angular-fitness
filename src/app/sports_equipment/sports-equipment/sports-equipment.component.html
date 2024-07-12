@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px"  class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+    <span class="material-symbols-outlined">
+      admin_panel_settings
+      </span>
+    <p>{{ this.firstname }} {{ this.lastname }}</p>
+  </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/borroweditems']">รายการยืมของสมาชิก</a>
+    <a [routerLink]="['/returnitem']">รายการคืนของสมาชิก</a>
+    <a [routerLink]="['/sportsequipment']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/member']">สมาชิก</a>
+    <a [routerLink]="['/admin']">ผู้ดูแลระบบ</a>
+    <a [routerLink]="['/borrowingreport']">รายงานการยืม - คืน</a>
+    <a routerLink="/">ออกจากระบบ</a>
+  </div>
+</div>
+<div class="selections">
+  <div class="title-selections">
+    <div class="head-selection">รายการอุปกรณ์กีฬา</div>
+    <div class="search">
+      <input type="search" class="search" [(ngModel)]="searchQuery" placeholder="ค้นหา"/>
+      <button class="btn-search" (click)="searchEquipment()">ค้นหา</button>
+    </div>
+  </div>
+  <div class="box-link">
+    <a (click)="addSportEquipment()" class="add-sport-equipment"
+    >เพิ่มอุปกรณ์</a
+  >
+  </div>
+  <table id="customers">
+    <tr>
+      <th>รหัสอุปกรณ์</th>
+      <th>รูปภาพ</th>
+      <th>ชื่ออุปกรณ์</th>
+      <th>จำนวน</th>
+      <th>หน่วยนับ</th>
+      <th>รายละเอียดอุปกรณ์</th>
+      <th>การจัดการ</th>
+    </tr>
+    <tr *ngFor="let equipment of filteredEquipmentList | paginate: { itemsPerPage: 4, currentPage: p }; let i = index">
+      <td data-call="รหัสอุปกรณ์">{{ (p - 1) * 5 + i + 1 }}</td>
+      <td data-call="รูปภาพ">
+        <a [href]="equipment.equipmentlist_picture"><span class="material-symbols-outlined">image</span></a>
+      </td>
+      <td data-call="ชื่ออุปกรณ์">{{ equipment.equipmentlist_name }}</td>
+      <td data-call="จำนวน">{{ equipment.equipmentlist_count }}</td>
+      <td data-call="หน่วยนับ">{{ equipment.equipmentlist_unit }}</td>
+      <td class="item-detail" [title]="equipment.equipmentlist_detail" data-call="รายละเอียดอุปกรณ์">{{ equipment.equipmentlist_detail }}</td>
+      <td data-call="การจัดการ">
+        <button
+          class="edit"
+          (click)="editsportequipment(equipment.equipmentlist_id)"
+        >
+          แก้ไข
+        </button>
+        <button
+          class="delete"
+          (click)="deletesportequipment(equipment.equipmentlist_id)"
+        >
+          ลบ
+        </button>
+      </td>
+    </tr>
+  </table>
+  <div class="paging">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px"  class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+    <span class="material-symbols-outlined">
+      admin_panel_settings
+      </span>
+    <p>{{ this.firstname }} {{ this.lastname }}</p>
+  </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/borroweditems']">รายการยืมของสมาชิก</a>
+    <a [routerLink]="['/returnitem']">รายการคืนของสมาชิก</a>
+    <a [routerLink]="['/sportsequipment']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/member']">สมาชิก</a>
+    <a [routerLink]="['/admin']">ผู้ดูแลระบบ</a>
+    <a [routerLink]="['/borrowingreport']">รายงานการยืม - คืน</a>
+    <a routerLink="/">ออกจากระบบ</a>
+  </div>
+</div>
+<div class="link-login">
+  <div class="link-header-left"><a [routerLink]="['/borrowingreport']"><p>รายงานการยืมคืนอุปกรณ์</p></a></div>
+  <div class="link-header-right"><a [routerLink]="['/borrowingequipmentreport']"><p>รายงานอุปกรณ์ที่ถูกยืม</p></a></div>
+</div>
+<div class="selections">
+  <div class="title-selections">
+    <div class="head-selection">รายงานการยืมคืนอุปกรณ์</div>
+    <div class="search">
+      <select [(ngModel)]="selectedDay" class="day">
+        <option value="">วันที่</option>
+        <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+      </select>
+      <select [(ngModel)]="selectedMonth" class="month">
+        <option value="">เดือน</option>
+        <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+      </select>
+      <select [(ngModel)]="selectedYear" class="year">
+        <option value="">ปี</option>
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+    <button class="btn-search" (click)="filterByDate()">ค้นหา</button>
+  </div>
+  <table id="customers">
+    <tr>
+      <th>ลำดับ</th>
+      <th>ชื่อสมาชิก</th>
+      <th>รหัสอุปกรณ์</th>
+      <th>ชื่ออุปกรณ์</th>
+      <th>จำนวน</th>
+      <th>หน่วยนับ</th>
+      <th>วันที่ยืม</th>
+      <th>วันที่คืน</th>
+      <th>สถานะ</th>
+    </tr>
+    <tr *ngFor="let order of filteredOrderSelections | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+      <td data-call="ลำดับ">{{ (p - 1) * 5 + i + 1 }}</td>
+      <td data-call="ชื่อสมาชิก">{{ order.firstname }} {{ order.lastname }}</td>
+      <td data-call="รหัสอุปกรณ์">{{ order.equipmentlist_id }}</td>
+      <td data-call="ชื่ออุปกรณ์">{{ order.equipmentlist_name }}</td>
+      <td data-call="จำนวน">{{ order.order_count }}</td>
+      <td data-call="หน่วยนับ">{{ order.equipmentlist_unit }}</td>
+      <td data-call="วันที่ยืม">{{ order.date_borrowing | thaiDate }}</td>
+      <td data-call="วันที่คืน">{{ order.date_returning | thaiDate }}</td>
+      <td data-call="สถานะ">
+        <span *ngIf="order.borrowing_returning_status === 'Y'" class="return">คืนแล้ว</span>
+        <span *ngIf="order.borrowing_returning_status === 'N'" class="no-borrow">ยังไม่คืน</span>
+        <span *ngIf="order.borrowing_returning_status === ''" class="wait-borrow">รอดำเนินการ</span>
+      </td>
+    </tr>
+  </table>
+  <div class="paging" *ngIf="filteredreportpage.length > 0">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+  

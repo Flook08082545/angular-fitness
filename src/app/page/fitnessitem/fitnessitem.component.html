@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px" class="logo" />
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+      <span class="material-symbols-outlined">
+        account_circle
+      </span>
+      <p>{{ firstname }} {{ lastname }}</p>
+    </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/fitnessitem']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/selections']">รายการยืมทั้งหมด</a>
+    <a [routerLink]="['/qrcode']">QR CODE</a>
+    <a [routerLink]="['/profile']">ข้อมูลส่วนตัว</a>
+    <a (click)="logout()">ออกจากระบบ</a>
+  </div>
+</div>
+<div class="container-order">
+  <div class="head-title-order">
+    รายการอุปกรณ์กีฬา
+  </div>
+  <div class="item-order">
+    <ng-container *ngFor="let equipment of equipmentLists; let i = index">
+      <div class="box-item-order">
+        <div class="box-item-order-size">
+          <img [src]="equipment.equipmentlist_picture" alt="" width="100%">
+          <div class="box-item">
+            <p>{{ equipment.equipmentlist_name }}</p>
+            <div class="box-item-data">
+              <div class="amount"> จำนวนอุปกรณ์ </div>
+              <div class="count"> {{ equipment.equipmentlist_count }} {{ equipment.equipmentlist_unit }}</div>
+            </div>
+            <div class="box-item-data">
+              <div class="box-item-detail">รายละเอียดอุปกรณ์</div>
+              <div class="item-detail" [title]="equipment.equipmentlist_detail">{{ equipment.equipmentlist_detail }}</div>
+            </div>
+            <div class="choose-item">
+              <a (click)="borrow(equipment.equipmentlist_id)">เลือก</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

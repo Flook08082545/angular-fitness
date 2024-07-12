@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&family=Noto+Sans+Thai&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-family: 'Noto Sans Thai', sans-serif;
+}
+body{
+  background-image: url("../../../assets/background.jpg");
+  width: 100%;
+}
+.container{
+    width: 100%;
+    margin: 0px auto;
+    padding: 2rem 16px;
+}
+.container-form{
+  text-align: center;
+  font-size: 12pt;
+  padding: 0 20px;
+}
+.container-form p{
+    text-align: center;
+    font-size: 12pt;
+}
+label{
+  display: flex;
+}
+label span{
+  padding: 0px 0;
+  font-size: 20pt;
+}
+label b{
+  padding: 0 5px;
+  font-size: 15pt;
+}
+.login{
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid #e9e9e9;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #dbdbdb;
+}
+.head-text{
+    text-align: center;
+    background-color: #04AA6D;
+    border-radius: 5px 5px 0 0;
+    padding: 20px;
+    font-size: 30pt;
+    color: #ffffff;
+    margin-bottom: 10pt;
+    border-radius: 20px 20px 0 0;
+}
+.box-flex{
+  display: flex;
+}
+.box-grid{
+  display: grid;
+  width: 100%;
+}
+#firstname{
+  max-width: 95%;
+}
+#lastname{
+  max-width: 100%;
+}
+#email{
+  max-width: 95%;
+}
+#psw{
+  max-width: 100%;
+}
+  label{
+    font-size: 13pt;
+  }
+  /* Full-width input fields */
+  input[type=text], input[type=password],input[type=email],input[type=tel], select{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-size: 16pt;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    text-align: center;
+    padding: 10px;
+  }
+  @media (max-width: 1024px) {
+    .login{
+      width: 100%;
+    }
+    .container .box-title-login , p{
+      text-align: center;
+    }
+  } 

@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px" class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+      <span class="material-symbols-outlined">admin_panel_settings</span>
+      <p>{{ firstname }} {{ lastname }}</p>
+    </div>
+    <div class="box-university">มหาวิทยาลัยเกษตรศาสตร์</div>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/borroweditems']">รายการยืมของสมาชิก</a>
+    <a [routerLink]="['/returnitem']">รายการคืนของสมาชิก</a>
+    <a [routerLink]="['/sportsequipment']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/member']">สมาชิก</a>
+    <a [routerLink]="['/admin']">ผู้ดูแลระบบ</a>
+    <a [routerLink]="['/borrowingreport']">รายงานการยืม - คืน</a>
+    <a routerLink="/">ออกจากระบบ</a>
+  </div>
+</div>
+
+<form method="post" enctype="multipart/form-data" (ngSubmit)="update_equipment()">
+  <div class="container">
+    <div class="edit-sportequipment">แก้ไขอุปกรณ์</div>
+    <p>ต้องการเพิ่มอุปกรณ์กีฬา</p>
+    <hr />
+
+    <label for="equipment_name"><b>ชื่ออุปกรณ์</b></label>
+    <input
+      type="text"
+      placeholder="กรอกชื่ออุปกรณ์"
+      name="equipment_name"
+      id="equipment_name"
+      [(ngModel)]="equipmentlist_name"
+      required
+    />
+
+    <label for="equipmentlist_count"><b>จำนวน</b></label>
+    <input
+      type="text"
+      placeholder="จำนวน"
+      name="equipmentlist_count"
+      id="equipmentlist_count"
+      [(ngModel)]="equipmentlist_count"
+      required
+    />
+
+    <label for="equipmentlist_unit"><b>หน่วยนับ</b></label>
+    <input
+      type="text"
+      placeholder="หน่วยนับ"
+      name="equipmentlist_unit"
+      id="equipmentlist_unit"
+      [(ngModel)]="equipmentlist_unit"
+      required
+    />
+
+    <label for="equipmentlist_detail"><b>รายละเอียดอุปกรณ์</b></label>
+    <textarea
+      name="equipmentlist_detail"
+      id="equipmentlist_detail"
+      cols="30"
+      rows="10"
+      placeholder="กรอกรายละเอียด"
+      [(ngModel)]="equipmentlist_detail"
+      required
+    ></textarea>
+
+    <label for="file"><b>รูปภาพ:</b></label>
+    <input type="file" name="image" id="image" accept="image/*" (change)="onFileSelected($event)">
+    
+    <!-- Display existing image -->
+    <div *ngIf="existingPicture">
+      <img [src]="existingPicture" alt="Equipment Image" width="200px">
+    </div>
+    
+    <!-- Display selected file name -->
+    <div *ngIf="picture">
+      <p>Selected File: {{ picture.name }}</p>
+    </div>
+
+    <button type="submit" class="registerbtn">บันทึกข้อมูล</button>
+  </div>
+</form>

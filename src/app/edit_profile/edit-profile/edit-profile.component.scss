@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&family=Noto+Sans+Thai&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-family: 'Noto Sans Thai', sans-serif;
+}
+.header{
+  background-color: #fff;
+  overflow: hidden;
+  border-bottom: 3px solid #04AA6D;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px #999999 ;
+}
+.img-logo{
+  float: left;
+}
+.header .link-header{   
+  display: grid;
+  float: right;
+  margin: 40px;
+}
+.box-user{
+  text-align: center;
+  font-size: 14pt;
+  display: flex;
+  float: right;
+  border-bottom: 2px solid #04AA6D;
+}
+.link-header span{   
+  font-size: 20pt;
+  margin: 0px 5px;
+}
+.link-header p{   
+  font-size: 16pt;
+  margin: 2px 5px;
+}
+.box-university{
+  float: right;
+  text-align: center;
+}
+.navbar-item {
+  display: flex;
+  width: 100%;
+}
+
+.navbar-item a{
+  width: 100%;
+  text-align: center;
+  background-color: #00c97f;
+  padding: 20px;
+  font-size: 16pt;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.navbar-item a:hover{
+  background-color: #4d4d4d;
+  transition: 0.2s;
+}
+.nav {
+  text-align: center;
+}
+.ham-menu {
+  display: none;
+  background-color: #00c97f;
+  padding: 10px 0;
+}
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #ffffff;
+  margin: 6px auto;
+  transition: 0.4s;
+}
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+.change .bar2 {
+  opacity: 0;
+}
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+.container {
+    padding: 16px;
+    background-color: white;
+    width: 70%;
+    margin:5vh auto;
+}
+.container .profile-edit{
+    font-size: 25pt;
+    margin: 20px 0;
+}
+.container p{
+  font-size: 12pt;
+}
+label{
+font-size: 16pt;
+}
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email], textarea, select{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  input[type=text]:focus, input[type=password]:focus,  textarea:focus{
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-size: 16pt;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  @media (max-width: 1024px) {
+    .navbar-item {
+      width: 100%;
+    }
+    .navbar-item a {
+      font-size: 12pt;
+    }
+  }
+  
+  @media (max-width: 790px) {
+    .navbar-item {
+      display: none;
+    }
+    .ham-menu {
+      display: inline-block;
+      cursor: pointer;
+      width: 100%;
+    }
+    .menu-active {
+      display: grid !important;
+    }
+    .navbar-item a {
+      background-color: #4d4d4d;
+      color: #ffffff;
+      font-size: 16pt;
+    }
+    .navbar-item a:hover {
+      background-color: #ffffff;
+      transition: 0.2s;
+      color: #4d4d4d;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .img-logo {
+      float: none;
+      text-align: center;
+    }
+    .header .link-header {
+      float: none;
+    }
+    .box-user {
+      text-align: center;
+      float: none;
+      margin: 0 auto;
+    }
+    .container .profile-edit, p{
+      text-align: center;
+  }
+  }

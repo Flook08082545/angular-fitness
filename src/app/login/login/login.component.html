@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<body>
+  <div class="container">
+    <div class="login">
+      <div class="head-text">สำหรับสมาชิก</div>
+      <div class="container-login">
+        <form (ngSubmit)="onLogin()">
+          <div class="container">
+            <div class="box-title-login">เข้าสู่ระบบ</div>
+            <p>กรุณากรอกข้อมูลนี้เพื่อเข้าสู่ระบบ.</p>
+            <hr />
+  
+            <label for="email">
+              <span class="material-symbols-outlined">mail</span><b>อีเมล</b>
+            </label>
+            <input
+              type="email"
+              placeholder="กรุณากรอกอีเมล"
+              [(ngModel)]="email"
+              name="email"
+              id="email"
+              required
+            />
+  
+            <label for="password">
+              <span class="material-symbols-outlined">key</span><b>รหัสผ่าน</b>
+            </label>
+            <input
+              type="password"
+              placeholder="กรุณากรอกรหัสผ่าน"
+              name="password"
+              [(ngModel)]="password"
+              id="password"
+              required
+            />
+  
+            <hr />
+            <button type="submit" class="registerbtn">
+              เข้าสู่ระบบ
+            </button>
+          </div>
+  
+          <div class="container signin">
+            <p>
+              ยังไม่มีบัญชีอยู่แล้ว? <a routerLink="/register">สมัครสมาชิก</a>.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </body>

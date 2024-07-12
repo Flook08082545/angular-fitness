@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px"  class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+    <span class="material-symbols-outlined">
+      account_circle
+      </span>
+    <p>{{ this.firstname }} {{ this.lastname }}</p>
+  </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/fitnessitem']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/selections']">รายการยืมทั้งหมด</a>
+    <a [routerLink]="['/qrcode']">QR CODE</a>
+    <a [routerLink]="['/profile']">ข้อมูลส่วนตัว</a>
+    <a (click)="logout()">ออกจากระบบ</a>
+  </div>
+</div>
+<form method="post" enctype="multipart/form-data" *ngFor="let member of member">
+  <div class="container">
+    <div class="profile-edit">แก้ไขข้อมูลส่วนตัว</div>
+    <p>ต้องการแก้ไขข้อมูลส่วนตัว</p>
+    <hr />
+    <!-- <label for="device_code"><b>รหัสสมาชิก</b></label>
+    <input
+      type="text"
+      placeholder=""
+      name="device_code"
+      id="device_code"
+      required
+      disabled
+      value="{{ member.member_id }}"
+      #member_code
+    /> -->
+
+    <label for="prefix"><b>คำนำหน้า</b></label>
+    <select name="prefix" id="prefix" [(ngModel)]="member.prefix" #prefix>
+      <option value="" disabled>--เลือก--</option>
+      <option *ngIf="member.prefix" value="นาย" [selected]="member.prefix == 'นาย'">นาย</option>
+      <option *ngIf="member.prefix" value="นาง" [selected]="member.prefix == 'นาง'">นาง</option>
+      <option *ngIf="member.prefix" value="นางสาว" [selected]="member.prefix == 'นางสาว'">นางสาว</option>
+      <option *ngIf="member.prefix" value="เด็กชาย" [selected]="member.prefix == 'เด็กชาย'">เด็กชาย</option>
+      <option *ngIf="member.prefix" value="เด็กหญิง" [selected]="member.prefix == 'เด็กหญิง'">เด็กหญิง</option>
+    </select>
+
+    <label for="firstname"><b>ชื่อ</b></label>
+    <input
+      type="text"
+      placeholder="กรุณากรอกชื่อ"
+      name="firstname"
+      id="firstname"
+      required
+      value="{{ member.firstname }}"
+      #firstname
+    />
+
+    <label for="lastname"><b>นามสกุล</b></label>
+    <input
+      type="text"
+      placeholder="กรุณากรอกนามสกุล"
+      name="lastname"
+      id="lastname"
+      required
+      value="{{ member.lastname }}"
+      #lastname
+    />
+
+    <label for="email"><b>อีเมล</b></label>
+    <input
+      type="email"
+      placeholder="กรุณากรอกอีเมล"
+      name="email"
+      id="email"
+      required
+      value="{{ member.email }}"
+      #email
+    />
+
+    <label for="sex"><b>เพศ</b></label>
+    <select name="sex" id="sex" [(ngModel)]="member.sex" #sex>
+      <option value="" disabled>--เลือก--</option>
+      <option *ngIf="member.sex" value="ชาย" [selected]="member.sex == 'ชาย'">ชาย</option>
+      <option *ngIf="member.sex" value="หญิง" [selected]="member.sex == 'หญิง'">หญิง</option>
+    </select>
+    
+    <label for="telephone"><b>เบอร์โทร</b></label>
+    <input
+      type="text"
+      name="telephone"
+      id="telephone"
+      placeholder="กรุณากรอกเบอร์โทรศัพท์"
+      required
+      value="0{{ member.telephone_number }}"
+      #telephone_number
+    />
+
+    <input type="hidden" name="member_id" value="{{ member.member_id }}" #member_id>
+    <button type="submit" class="registerbtn" (click)="
+save_member(
+  member_id.value,
+  prefix.value,
+      firstname.value,
+      lastname.value,
+      email.value,
+      sex.value,
+      telephone_number.value
+    )">บันทึกข้อมูล</button>
+  </div>
+</form>

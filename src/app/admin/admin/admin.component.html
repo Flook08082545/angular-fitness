@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px"  class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+    <span class="material-symbols-outlined">
+      admin_panel_settings
+      </span>
+    <p>{{ this.firstname }} {{ this.lastname }}</p>
+  </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/borroweditems']">รายการยืมของสมาชิก</a>
+    <a [routerLink]="['/returnitem']">รายการคืนของสมาชิก</a>
+    <a [routerLink]="['/sportsequipment']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/member']">สมาชิก</a>
+    <a [routerLink]="['/admin']">ผู้ดูแลระบบ</a>
+    <a [routerLink]="['/borrowingreport']">รายงานการยืม - คืน</a>
+    <a routerLink="/">ออกจากระบบ</a>
+  </div>
+</div>
+<div class="selections">
+  <div class="title-selections">
+    <div class="head-selection">รายชื่อเจ้าหน้าที่ดูแลระบบทั้งหมด</div>
+    <div class="search">
+      <input type="search" class="search" [(ngModel)]="searchTerm" placeholder="ค้นหา"/>
+      <button class="btn-search" (click)="searchItems()">ค้นหา</button>
+    </div>
+  </div>
+  <div class="box-link">
+    <a (click)="addadmin()" class="add-sport-equipment"
+    >เพิ่มเจ้าหน้าที่ดูแลระบบ</a
+  >
+  </div>
+  <table id="customers">
+    <tr>
+      <th>ลำดับ</th>
+      <th>คำนำหน้า</th>
+      <th>ชื่อ</th>
+      <th>นามสกุล</th>
+      <th>อีเมล</th>
+      <th>เพศ</th>
+      <th>เบอร์โทรศัพท์</th>
+    </tr>
+    <tr *ngFor="let admins of admins | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+      <td data-call="ลำดับ">{{ (p - 1) * 5 + i + 1 }}</td>
+      <td data-call="คำนำหน้า">{{ admins.prefix }}</td>
+      <td data-call="ชื่อ">{{ admins.firstname }}</td>
+      <td data-call="นามสกุล">{{ admins.lastname }}</td>
+      <td data-call="อีเมล">{{ admins.email }}</td>
+      <td data-call="เพศ">{{ admins.sex }}</td>
+      <td data-call="เบอร์โทรศัพท์">0{{ admins.telephone_number }}</td>
+    </tr>
+  </table>
+  <div class="paging">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

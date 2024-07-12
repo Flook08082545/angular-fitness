@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="header">
+  <div class="img-logo">
+    <img src="../../../assets/KU_SubLogo_Thai.png" alt="" width="150px"  class="logo"/>
+  </div>
+  <div class="link-header">
+    <div class="box-user">
+    <span class="material-symbols-outlined">
+      admin_panel_settings
+      </span>
+    <p>{{ this.firstname }} {{ this.lastname }}</p>
+  </div>
+    <div class="box-university">
+      มหาวิทยาลัยเกษตรศาสตร์
+    </div>
+  </div>
+</div>
+<div class="nav">
+  <div class="ham-menu" (click)="myFunction($event.target)">
+    <div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="navbar-item" id="myMenu">
+    <a [routerLink]="['/borroweditems']">รายการยืมของสมาชิก</a>
+    <a [routerLink]="['/returnitem']">รายการคืนของสมาชิก</a>
+    <a [routerLink]="['/sportsequipment']">อุปกรณ์กีฬา</a>
+    <a [routerLink]="['/member']">สมาชิก</a>
+    <a [routerLink]="['/admin']">ผู้ดูแลระบบ</a>
+    <a [routerLink]="['/borrowingreport']">รายงานการยืม - คืน</a>
+    <a routerLink="/">ออกจากระบบ</a>
+  </div>
+</div>
+<form method="post" enctype="multipart/form-data" (ngSubmit)="save_equipment(equipmentlist_name.value,equipmentlist_count.value,equipmentlist_unit.value,equipmentlist_detail.value)">
+  <div class="container">
+    <div class="add-sportequipment">เพิ่มอุปกรณ์</div>
+    <p>ต้องการเพิ่มอุปกรณ์กีฬา</p>
+    <hr />
+    <label for="equipmentlist_id"><b>รหัสอุปกรณ์</b></label>
+    <input
+      type="text"
+      placeholder=""
+      name="equipmentlist_id"
+      id="equipmentlist_id"
+      [value]="equipmentlist_old_id"
+      required
+      disabled
+    />
+
+    <label for="equipment_name"><b>ชื่ออุปกรณ์</b></label>
+    <input
+      type="text"
+      placeholder="กรอกชื่ออุปกรณ์"
+      name="equipment_name"
+      id="equipment_name"
+      #equipmentlist_name
+      required
+    />
+
+    <label for="count"><b>จำนวน</b></label>
+    <input
+      type="text"
+      placeholder="จำนวน"
+      name="count"
+      id="count"
+      #equipmentlist_count
+      required
+    />
+
+    <label for="unit"><b>หน่วยนับ</b></label>
+    <input
+      type="text"
+      placeholder="หน่วยนับ"
+      name="unit"
+      id="unit"
+      #equipmentlist_unit
+      required
+    />
+
+    <label for="detail"><b>รายละเอียดอุปกรณ์</b></label>
+    <textarea
+      name="detail"
+      id="detail"
+      cols="30"
+      rows="10"
+      placeholder="กรอกรายละเอียด"
+      #equipmentlist_detail
+      required
+    ></textarea>
+    <label for="file"><b>อัปโหลดรูปภาพ : </b></label>
+    <input type="file" (change)="onFileSelected($event)" required />
+    <button type="submit" class="submit-save">
+      บันทึกข้อมูล
+    </button>
+  </div>
+</form>
